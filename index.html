@@ -18,71 +18,688 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--ink); font-family: 'Golos Text', sans-serif; font-size: 16px; line-height: 1.7; }
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(249,249,249,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
-  .nav-logo { font-family: 'Golos Text', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.04em; color: var(--ink); }
-  .nav-links { display: flex; gap: 32px; list-style: none; }
-  .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; letter-spacing: 0.02em; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Golos Text', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(249,249,249,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Golos Text', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.02em;
+  }
+
   .nav-links a:hover { color: var(--accent); }
 
-  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; max-width: 1200px; margin: 0 auto; padding: 56px 40px 0; gap: 60px; align-items: center; }
-  .hero-text { padding-top: 40px; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-light); color: var(--accent-dark); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 40px; margin-bottom: 28px; }
-  .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
-  h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(34px, 4.5vw, 54px); font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 8px; }
-  h1 span { color: var(--accent); display: block; }
-  .hero-role { font-size: 18px; color: var(--muted); margin-bottom: 28px; font-weight: 500; }
-  .hero-bio { font-size: 16px; line-height: 1.8; color: #333; max-width: 480px; margin-bottom: 36px; }
-  .hero-contacts { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 40px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
-  .btn-primary { background: var(--accent); color: white; }
-  .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
-  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 56px 40px 0;
+    gap: 60px;
+    align-items: center;
+  }
 
-  .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; padding-top: 56px; }
-  .hero-photo-wrap { position: relative; width: 380px; height: 480px; }
-  .hero-photo-bg { position: absolute; inset: 0; background: var(--accent-light); border-radius: 200px 200px 160px 160px; }
-  .hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 200px 200px 160px 160px; filter: grayscale(100%); transition: filter 0.4s ease; }
-  .hero-photo-wrap:hover .hero-photo { filter: grayscale(0%); }
-  .hero-stat { position: absolute; background: white; border-radius: 16px; padding: 14px 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); font-size: 13px; }
-  .hero-stat strong { display: block; font-family: 'Unbounded', sans-serif; font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.2; }
+  .hero-text { padding-top: 40px; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 40px;
+    margin-bottom: 28px;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(34px, 4.5vw, 54px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+  }
+
+  h1 span {
+    color: var(--accent);
+    display: block;
+  }
+
+  .hero-role {
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  .hero-bio {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    max-width: 480px;
+    margin-bottom: 36px;
+  }
+
+  .hero-bio p + p { margin-top: 12px; }
+
+  .hero-contacts {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--border);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 56px;
+  }
+
+  .hero-photo-wrap {
+    position: relative;
+    width: 380px;
+    height: 480px;
+  }
+
+  .hero-photo-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--accent-light);
+    border-radius: 200px 200px 160px 160px;
+  }
+
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 200px 200px 160px 160px;
+    filter: grayscale(100%);
+    transition: filter 0.4s ease;
+  }
+
+  .hero-photo-wrap:hover .hero-photo {
+    filter: grayscale(0%);
+  }
+
+  .hero-stat {
+    position: absolute;
+    background: white;
+    border-radius: 16px;
+    padding: 14px 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    font-size: 13px;
+  }
+
+  .hero-stat strong {
+    display: block;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.2;
+  }
+
   .hero-stat-1 { bottom: 40px; left: -20px; }
   .hero-stat-2 { top: 80px; right: -20px; }
 
-  section { max-width: 1200px; margin: 0 auto; padding: 100px 40px; }
-  .section-header { display: flex; align-items: baseline; gap: 20px; margin-bottom: 56px; }
-  .section-num { font-family: 'Unbounded', sans-serif; font-size: 12px; color: var(--accent); font-weight: 700; letter-spacing: 0.1em; }
-  h2 { font-family: 'Unbounded', sans-serif; font-size: clamp(24px, 3vw, 36px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
+  /* SECTION */
+  section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
+  }
 
-  .cases-grid { display: grid; gap: 24px; }
-  .case-card { background: var(--white); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: all 0.25s; }
-  .case-card:hover { border-color: var(--accent); box-shadow: 0 8px 40px rgba(32,178,170,0.06); }
-  .case-inner { padding: 40px 48px; display: grid; grid-template-columns: 320px 1fr; gap: 48px; align-items: flex-start; }
-  .case-meta { display: flex; flex-direction: column; }
-  .case-num { font-family: 'Unbounded', sans-serif; font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: 0.1em; margin-bottom: 12px; }
-  .case-title { font-family: 'Unbounded', sans-serif; font-size: 18px; font-weight: 700; line-height: 1.3; }
-  .case-meta-action { margin-top: 20px; }
-  .case-body p { font-size: 15px; line-height: 1.75; margin-bottom: 20px; color: #333; }
-  .case-items { list-style: none; margin: 0 0 24px; }
-  .case-items li { font-size: 14.5px; padding: 12px 0 12px 16px; border-bottom: 1px solid var(--border); position: relative; color: #333; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 56px;
+  }
+
+  .section-num {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  h2 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  /* CASES */
+  .cases-grid {
+    display: grid;
+    gap: 24px;
+  }
+
+  .case-card {
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: all 0.25s;
+  }
+
+  .case-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 8px 40px rgba(32,178,170,0.06);
+  }
+
+  .case-inner {
+    padding: 40px 48px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .case-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .case-num {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
+  .case-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    margin-bottom: 0;
+  }
+
+  .case-meta-action {
+    margin-top: 20px; 
+    padding-top: 0;
+  }
+
+  .case-body p {
+    font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .case-items {
+    list-style: none;
+    margin: 0 0 24px;
+  }
+
+  .case-items li {
+    font-size: 14.5px;
+    padding: 12px 0 12px 16px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    color: #333;
+    line-height: 1.6;
+  }
+
   .case-items li:first-child { border-top: 1px solid var(--border); }
-  .case-items li::before { content: ''; position: absolute; left: 0; top: 22px; width: 4px; height: 4px; background: var(--accent); border-radius: 50%; }
-  .case-result { display: flex; align-items: flex-start; gap: 10px; background: var(--accent-light); padding: 14px 18px; border-radius: 12px; font-size: 14px; color: var(--accent-dark); line-height: 1.5; font-weight: 500; }
-  .case-result::before { content: '✦'; font-size: 12px; margin-top: 2px; flex-shrink: 0; }
-  .case-link-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 12px 24px; border-radius: 30px; font-size: 14px; text-decoration: none; font-weight: 600; transition: all 0.2s; box-shadow: 0 4px 12px rgba(32, 178, 170, 0.15); }
-  .case-link-btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
 
+  .case-items li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  .case-result {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--accent-light);
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--accent-dark);
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .case-result::before {
+    content: '✦';
+    font-size: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .case-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(32, 178, 170, 0.15);
+  }
+
+  .case-link-btn:hover {
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(32, 178, 170, 0.25);
+  }
+
+  .case-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* SKILLS */
   .skills-section { background: var(--ink); }
-  .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: #333; border: 1px solid #333; border-radius: 16px; overflow: hidden; margin-top: 56px; }
-  .skill-block { background: #1A1A1A; padding: 36px; }
-  .skill-block h3 { font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
-  .skill-block p { font-size: 14.5px; color: #AAAAAA; line-height: 1.7; }
-  .cta-section { text-align: center; padding: 120px 40px; }
-  .cta-title { font-family: 'Unbounded', sans-serif; font-size: clamp(26px, 3.5vw, 42px); font-weight: 900; margin: 0 auto 16px; }
-  .divider { height: 1px; background: var(--border); max-width: 1200px; margin: 0 auto; }
+  .skills-section h2 { color: white; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: #333;
+    border: 1px solid #333;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 56px;
+  }
+
+  .skill-block {
+    background: #1A1A1A;
+    padding: 36px;
+  }
+
+  .skill-block h3 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .skill-block p {
+    font-size: 14.5px;
+    color: #AAAAAA;
+    line-height: 1.7;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 120px 40px;
+  }
+
+  .cta-label {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .cta-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(26px, 3.5vw, 42px);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    max-width: 800px;
+    margin: 0 auto 16px;
+  }
+
+  .cta-sub {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 40px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      padding-top: 80px;
+      gap: 40px;
+    }
+    .hero-visual { order: -1; padding-top: 20px; }
+    .hero-photo-wrap { width: 280px; height: 350px; }
+    .case-inner {
+      grid-template-columns: 1fr;
+      padding: 32px 24px;
+      gap: 20px;
+    }
+    .case-meta-action {
+      margin-top: 4px;
+      margin-bottom: 12px;
+    }
+    .skills-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 60px 20px; }
+  }
 </style>
 </head>
 <body>
+
+<nav>
+  <div class="nav-logo">Юлия Олейник</div>
+  <ul class="nav-links">
+    <li><a href="#cases">Кейсы</a></li>
+    <li><a href="#skills">Навыки</a></li>
+    <li><a href="#contact">Контакты</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">Открыта к предложениям</div>
+    <h1>ЮЛИЯ<span>ОЛЕЙНИК</span></h1>
+    <div class="hero-role">редактор и автор контента</div>
+    <div class="hero-bio">
+      <p>Восемь лет в контенте и редактуре. Пишу тексты, которые хочется дочитать до конца. Говорю с аудиторией простым человеческим языком и быстро нахожу голос бренда — от лёгкого разговорного формата до публицистики.</p>
+      <p>Не люблю агрессивный маркетинг и пустые формулировки: мне важно, чтобы текст был живым и при этом решал свою задачу.</p>
+    </div>
+    <div class="hero-contacts">
+      <a href="https://t.me/julialekhina" class="btn btn-primary" target="_blank">Написать в Telegram</a>
+      <a href="mailto:alekhina9@gmail.com" class="btn btn-outline">alekhina9@gmail.com</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-bg"></div>
+      <img src="2025-08-14 14.04.37.jpg" alt="Юлия Олейник" class="hero-photo">
+    </div>
+    <div class="hero-stat hero-stat-1">
+      <strong>8+</strong>
+      лет в контенте
+    </div>
+    <div class="hero-stat hero-stat-2">
+      <strong>Тбилиси</strong>
+      Удаленно
+    </div>
+  </div>
+</div>
+
+<section id="cases">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2>Кейсы и примеры работ</h2>
+  </div>
+
+  <div class="cases-grid">
+
+    <div class="case-card">
+      <div class="case-inner">
+        <div class="case-meta">
+          <div class="case-num">КЕЙС 01</div>
+          <div class="case-title">Комплексная стратегия и контент-продакшн (Кейс Cuva)</div>
+          <div class="case-meta-action">
+            <a href="https://docs.google.com/document/d/1qJEktvWJXZBg0RQmBQ1rdOioTfuvcbXK4t2nfu8g9mQ/edit?tab=t.0" class="case-link-btn" target="_blank">Открыть материалы →</a>
+          </div>
+        </div>
+        <div class="case-body">
+          <p>В этом проекте я решала задачу по созданию единой экосистемы контента для сервиса подарочных сертификатов на отдых. Вместо стандартного описания отелей я предложила аудитории сценарии жизни и проживание уникального опыта.</p>
+          <ul class="case-items">
+            <li><strong>Telegram — геймификация и вовлечение.</strong> Разработала два формата карточек: интерактивный «конструктор отдыха» для роста комментариев и иммерсивный «трафарет», позволяющий пользователю примерить роль главного героя на себя. Сохранила визуальный код бренда, добавив в него новые механики взаимодействия.</li>
+            <li><strong>Email-маркетинг — сегментация аудитории вместо массовых рассылок.</strong> Разработала стратегию рассылок к 8 марта. Вместо общего письма — кастомные цепочки под разные боли. Это позволило кратно повысить релевантность предложения и прогнозный ROMI.</li>
+            <li><strong>Блог — контент через культурные коды.</strong> Создала концепцию статьи «Выходные как в кино», где локации Cuva подобраны под атмосферу известных фильмов (от «Хоббита» до «Грозового перевала»). Это перевело продукт из категории «бронирование жилья» в категории «эмоциональный ресурс».</li>
+            <li><strong>Рекламные креативы.</strong> Серия баннеров с тестами разных психологических триггеров: от самозаботы до рациональной гарантии «точно угадаешь».</li>
+          </ul>
+          <div class="case-result">Результат: готовая контентная воронка, которая работает на всех этапах — от первого касания в соцсетях до покупки в рассылке.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-inner">
+        <div class="case-meta">
+          <div class="case-num">КЕЙС 02</div>
+          <div class="case-title">Издательский контент и рассылки</div>
+          <div class="case-meta-action">
+            <a href="https://docs.google.com/document/d/1dSefFnJGHDvfAFhHmykIB1k8USm6oVWjV9SDYzJxk5Y/edit?tab=t.0#heading=h.iyn2zeicjq2f" class="case-link-btn" target="_blank">Открыть материалы →</a>
+          </div>
+        </div>
+        <div class="case-body">
+          <p>В этом кейсе я показываю, как раскрывать смыслы и атмосферу книги через контент, который откликается у аудитории и решает задачи издательства.</p>
+          <p>Разработка комплексного промо-пакета для книги «Рыжий кот Фута из кафе между мирами»:</p>
+          <ul class="case-items">
+            <li><strong>Email-маркетинг (темы, preheader и лонгрид).</strong> Создала воронку для рассылки по теплой базе, подготовив три варианта триггерных заголовков и развернутый, эмоциональный текст, который вовлекает в контекст книги.</li>
+            <li><strong>Контент для карточки товара (аннотация).</strong> Написала атмосферное описание книги для сайта, которое интригует сюжетом и передает настроение японской «исцеляющей» прозы.</li>
+            <li><strong>Маркетинговые тезисы («блямбы»).</strong> Сформулировала короткие емкие фразы для обложки или рекламных баннеров, бьющие в разные запросы читателей (поиск утешения, любовь к сказкам, короткие форматы).</li>
+          </ul>
+          <div class="case-result">Результат: создан прогревающий промо-пакет, который переводит абстрактный анонс книги в категорию эмоционального must-read для целевой аудитории.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-inner">
+        <div class="case-meta">
+          <div class="case-num">КЕЙС 03</div>
+          <div class="case-title">Технологии и тренды — без занудства</div>
+          <div class="case-meta-action">
+            <a href="https://docs.google.com/document/d/1Nvj5--dhK87zAeczM6MJflg4AljWvJC_x_A9g725AOI/edit?tab=t.0#heading=h.wy4lbvgoqrip" class="case-link-btn" target="_blank">Открыть материалы →</a>
+          </div>
+        </div>
+        <div class="case-body">
+          <p>Здесь я показываю, как превращать тяжелый экспертный контент в понятный и вовлекающий, адаптируя смыслы под широкую аудиторию.</p>
+          <p>Собрала несколько примеров того, как я работаю с тяжелыми темами: от исследований и отчётов до современных технологий. Первоисточники разобраны на смыслы и переупакованы в тексты, которые интересно читать, с использованием сторителлинга и иронии там, где это уместно.</p>
+          <div class="case-result">Результат: сложные аналитические материалы переработаны в увлекательные и легко усваиваемые форматы, увеличивающие глубину дочитывания экспертных медиа.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-inner">
+        <div class="case-meta">
+          <div class="case-num">КЕЙС 04</div>
+          <div class="case-title">Работа с личным брендом и ToV</div>
+          <div class="case-meta-action">
+            <div class="case-btn-group">
+              <a href="ССЫЛКА_НА_ЛОНГРИД" class="case-link-btn" target="_blank">Открыть лонгрид →</a>
+              <a href="ССЫЛКА_НА_ПРОГРЕВ" class="case-link-btn" target="_blank">Открыть прогрев →</a>
+            </div>
+          </div>
+        </div>
+        <div class="case-body">
+          <p>В этом блоке показано, как я умею подстраиваться под «голос» автора и выстраивать доверительную коммуникацию даже для масштабных и дорогих продуктов на примере проекта Павел Гительман Team First в Crocus City Hall.</p>
+          <ul class="case-items">
+            <li><strong>Статья-лонгрид с подробным разбором конференции.</strong> Аудитория была сегментирована по уровням бизнеса, а для каждого сегмента прописаны свои сценарии роста. Текст очищен от рекламных штампов и наполнен живыми метафорами.</li>
+            <li><strong>Прогрев и серия постов от лица основателя.</strong> В рамках работы над личным брендом был создан образ экспертного, но честного автора. В коммуникацию внедрены элементы сторителлинга и признание ошибок, что помогло снизить градус серьезности и повысить вовлеченность.</li>
+          </ul>
+          <div class="case-result">Результат: за счет «человечной» подачи холодная аудитория была прогрета до состояния активного интереса, а посты получили высокий отклик и живое обсуждение в комментариях.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-inner">
+        <div class="case-meta">
+          <div class="case-num">КЕЙС 05</div>
+          <div class="case-title">Публицистика и образовательный контент</div>
+          <div class="case-meta-action">
+            <a href="https://docs.google.com/document/d/1-A-ISEapWTk7j-YBLj1fShnOEusWVYOwdf5n3eC0WjI/edit?tab=t.0#heading=h.1vy5x7xocoln" class="case-link-btn" target="_blank">Открыть материалы кейса →</a>
+          </div>
+        </div>
+        <div class="case-body">
+          <p>В этом блоке собраны большие статьи и гайды на тему образования за рубежом. Здесь я совмещаю глубокий ресерч и соблюдение требований SEO с легким и живым стилем изложения.</p>
+          <p><strong>Экспертный ресерч.</strong> Статьи выстроены на данных из иностранных источников. Сложные бюрократические процессы поступления и оформления документов разложены в понятные инструкции, которые не пугают читателя.<br>
+          <strong>SEO без фанатизма.</strong> Тексты написаны с учетом ключей и требований поисковиков, но без потери человеческого языка.<br>
+          <strong>Погружение в контекст.</strong> Помимо учебы, подготовлены лайфстайл-материалы о культуре и локациях. Это помогает пользователю не просто найти информацию, а прочувствовать атмосферу страны.</p>
+          <div class="case-result">Результат: комплексные экспертные гайды, которые не только закрывают требования поисковых роботов (SEO), но и снимают страхи абитуриентов перед поступлением.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="skills" style="background: var(--ink); max-width: 100%; padding: 100px 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 40px;">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 style="color: white;">Ключевые навыки</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <h3>Работа с информацией</h3>
+        <p>Глубокий ресерч (включая иностранные источники), проведение интервью с экспертами, вытаскивание смыслов из хаотичных заметок.</p>
+      </div>
+      <div class="skill-block">
+        <h3>Редактура и стиль</h3>
+        <p>Работа в разных ToV, адаптация одного контента под разные площадки (мультиформатность), чистка текста от мусора по Кэмпу или Ильяхову (но с сохранением жизни).</p>
+      </div>
+      <div class="skill-block">
+        <h3>Дистрибуция и форматы</h3>
+        <p>Верстка в Notion/Teletype, базовое понимание SEO, работа с нейросетями для генерации идей и структуры.</p>
+      </div>
+      <div class="skill-block">
+        <h3>Инструменты</h3>
+        <p>Свободно работаю в Google Docs/Sheets and Notion. Проектирую воронки в Miro, собираю презентации и простые макеты в Figma и графических редакторах. Умею администрировать Telegram-каналы и использовать нейросети для ускорения ресерча и работы со структурой.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="cta-section">
+  <div class="cta-label">Контакты</div>
+  <div class="cta-title">Пишите, если ищете редактора, который думает не только про текст, но и про то, зачем он нужен</div>
+  <div class="cta-sub">Локация: Тбилиси / Удаленно</div>
+  <div class="cta-buttons">
+    <a href="https://t.me/julialekhina" class="btn btn-primary" target="_blank">Telegram: @julialekhina</a>
+    <a href="mailto:alekhina9@gmail.com" class="btn btn-outline">alekhina9@gmail.com</a>
+  </div>
+</section>
+
+</body>
+</html>
